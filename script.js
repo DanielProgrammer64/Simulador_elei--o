@@ -13,21 +13,21 @@
 
 const max = 12; // essa constante serve para limitar o número de candidatos
 
-const candidato = {
-  nome: "",
-  votos: 0,
-};
-
-const candidatos = [];
+// definindo o array pra armazenamento de candidatos
+let candidatos = [];
 let quantidade_de_candidatos;
 
-function Main(C, V) {
-  if (C < 2) {
+function Main() {
+  let nome_candidatos = prompt(
+    "Digite os nomes dos candidatos da eleição separados por espaço: "
+  ).split(" ");
+
+  quantidade_de_candidatos = nome_candidatos.length;
+
+  if (quantidade_de_candidatos < 2) {
     console.info("Quantidade de candidatos inválida");
     return;
   }
-
-  quantidade_de_candidatos = C - 1;
 
   if (quantidade_de_candidatos > max) {
     console.info("O número Máximo de candidatos é", max);
@@ -35,19 +35,19 @@ function Main(C, V) {
   }
 
   for (let i = 0; i < quantidade_de_candidatos; i++) {
-    candidatos[i].nome = V[i + 1];
-    candidatos[i].votos = 0;
+    candidatos.push({ nome: nome_candidatos[i], votos: 0 });
   }
 
-  let numero_votos = prompt("Número de Votos: ");
+  let numero_votos = parseInt(prompt("Número de Votos: "), 10);
 
   for (let i = 0; i < numero_votos; i++) {
-    nome = prompt("Voto: ");
+    let nome = prompt("Voto: ");
     if (!Votar(nome)) {
       console.info("Voto inválido");
     }
   }
-  Imprimir_vendedor();
+
+  Imprimir_vencedor();
 }
 
 function Votar(nome) {
@@ -60,8 +60,10 @@ function Votar(nome) {
   return false;
 }
 
-function Imprimir_vendedor() {
+function Imprimir_vencedor() {
   let maximo_votos = 0;
+  let vencedores = [];
+
   for (let i = 0; i < quantidade_de_candidatos; i++) {
     if (candidatos[i].votos > maximo_votos) {
       maximo_votos = candidatos[i].votos;
@@ -70,8 +72,14 @@ function Imprimir_vendedor() {
 
   for (let i = 0; i < quantidade_de_candidatos; i++) {
     if (candidatos[i].votos === maximo_votos) {
-      console.info(candidatos[i].nome);
+      vencedores.push(candidatos[i].nome);
     }
   }
-  return;
+  console.info("O(s) vencedor(es) é(são): ", vencedores.join("; "));
+  console.info("Candidatos e votos: ");
+  for (let i = 0; i < quantidade_de_candidatos; i++) {
+    console.info(`${candidatos[i].nome}: ${candidatos[i].votos}`);
+  }
 }
+
+Main();
