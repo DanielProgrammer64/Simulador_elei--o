@@ -4,19 +4,52 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <script src="script.js" async defer></script>
-    </body>
+
+    <div class="card">
+        <h1 class="itens_card">Eleição</h1>
+
+        <div class="form">
+            <div class="form-element">
+                <label for="candidatos_nome">insira o nome dos candidatos separados por espaço:</label>
+                <Input class="itens_card" name="candidatos_nome"> </Input>
+            </div>
+
+            <div class="form-element">
+                <label for="numero_eleitores">Insira o número de eleitores:</label>
+                <input class="itens_card" type="number">
+            </div>
+
+            <div class="form-element">
+                <label for="voto">Insira os nomes dos candidatos de acordo com os votados:</label>
+                <input type="text">
+            </div>
+
+            <h2>candidatos e seus números de votos: </h2>
+
+            <ul>
+
+            </ul>
+
+            <h2>Campeão: </h2>
+        </div>
+
+    </div>
+
+    <script src="script.js" async defer></script>
+</body>
+
 </html>

@@ -15,26 +15,26 @@ const max = 12; // essa constante serve para limitar o número de candidatos
 
 // definindo o array pra armazenamento de candidatos
 let candidatos = [];
+
+// variável que vai estocar a quantidade de candidatos
 let quantidade_de_candidatos;
 
-function Main() {
-  let nome_candidatos = prompt(
-    "Digite os nomes dos candidatos da eleição separados por espaço: "
-  ).split(" ");
+function Main() { // função principal
+  let nome_candidatos = prompt("Digite os nomes dos candidatos da eleição separados por espaço: ").split(" "); // variável que recebe cada nome separado por espaço
 
-  quantidade_de_candidatos = nome_candidatos.length;
+  quantidade_de_candidatos = nome_candidatos.length; // atribuído à variável quantidade_de_candidatos um índice para cada nome
 
-  if (quantidade_de_candidatos < 2) {
-    console.info("Quantidade de candidatos inválida");
+  if (quantidade_de_candidatos < 2) { // se a quantidade de candidatos for menor que 2
+    console.info("Quantidade de candidatos inválida"); // a quantidade se torna inválida
     return;
   }
 
-  if (quantidade_de_candidatos > max) {
-    console.info("O número Máximo de candidatos é", max);
+  if (quantidade_de_candidatos > max) { // se a quantidade de candidatos exceder o limite
+    console.info("O número Máximo de candidatos é", max); // a quantidade máxima é mostrada 
     return;
   }
 
-  for (let i = 0; i < quantidade_de_candidatos; i++) {
+  for (let i = 0; i < quantidade_de_candidatos; i++) { 
     candidatos.push({ nome: nome_candidatos[i], votos: 0 });
   }
 
